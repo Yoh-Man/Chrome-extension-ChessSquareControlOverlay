@@ -1,0 +1,64 @@
+/* ── Overlay grid — sits on top of the chess board ── */
+.chess-control-overlay {
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(8, 1fr);
+    grid-template-rows: repeat(8, 1fr);
+    z-index: 500;
+}
+
+.control-cell {
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box;
+    pointer-events: none;
+    transition: background-color 0.15s ease;
+}
+
+/* White controls this square (blue tint) */
+.control-cell.white-control {
+    background-color: rgba(60, 160, 255, 0.30);
+}
+
+/* Black controls this square (red tint) */
+.control-cell.black-control {
+    background-color: rgba(255, 55, 80, 0.30);
+}
+
+/* Both colors attack — contested (purple tint) */
+.control-cell.contested {
+    background-color: rgba(180, 80, 255, 0.25);
+}
+
+
+/* ── Toggle button — fixed in bottom-right corner ── */
+.chess-control-toggle {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    z-index: 100000;
+    padding: 8px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 8px;
+    background: rgba(20, 20, 20, 0.92);
+    color: #fff;
+    cursor: pointer;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+    transition: all 0.15s ease;
+    user-select: none;
+}
+.chess-control-toggle:hover {
+    background: rgba(40, 40, 40, 0.95);
+    border-color: rgba(255, 255, 255, 0.25);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+}
